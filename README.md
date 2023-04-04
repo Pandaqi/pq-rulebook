@@ -4,6 +4,8 @@ At the start of 2023, I started creating "playful rules" for my (board) game at 
 
 It's finished---I've actually used it for some time---but highly tailored to my website and still quite limited.
 
+![Example image from the first rulebook made with this system, one section unfolded.](pq_rulebook_example_header.webp)
+
 ## What does it do?
 
 It turns a website into an _interactive rulebook_, because that's by far the best and most fun way to learn a new game.
@@ -52,12 +54,20 @@ The icons for sections can be one of 8 predefined types (that occur in almost ev
 
 ## Interactive Examples
 
-@TODO
+To register a new example, use the `rules-example` shortcode with some unique `id="something"`. Then, in an extra javascript file (which you also load), define what this example does.
+
+Set `PQ_RULEBOOK.exampleConfigs[id] = ` to some object that contains the `generate(o)` function. 
+
+* This function is called by the system to generate a new example turn. 
+* The `o` contains many helper functions (from the library) to easily create interactive examples.
+
+Again, see the example rulebook(s) for how this works in practice.
 
 ## Roadmap
 
 I improve this system whenever I create a new rulebook (and/or need some new functionality). In general, I want ...
 
+* Way better documentation, generalized code, so others can use it as well
 * To research how to prevent all these rulebooks from looking the same.
 * Easy support for animations / videos
 * More tools for the interactive examples (once I've made enough to see patterns and what functionality is most needed)
