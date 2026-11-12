@@ -1,0 +1,32 @@
+{{ define "head" }}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{ $favicon := partial "func/get-favicon.html" .Parent }}
+    <link rel="icon" type="image/png" href="{{ $favicon }}">
+
+    <title>{{ .Parent.Title }} | Rules | Pandaqi Games</title>
+    <script>
+        window.PagedConfig = {
+            auto: false,
+            after: (flow) => { console.log("after", flow) },
+        };
+    </script>
+</head>
+{{ end }}
+
+{{- define "header" -}}<!--- --->{{ end }}
+        
+{{- define "main" -}}
+<article id="rulebook-content">
+    {{ .Content }}
+</article>
+{{- end -}}
+
+{{ define "footer" }}
+{{ if .Site.Params.enableRulesJS }}
+    {{ partial "func/load-assets.html" . }}
+    <script defer src="/lib/paged.polyfill.js"></script>
+{{ end }}
+{{ end }}
